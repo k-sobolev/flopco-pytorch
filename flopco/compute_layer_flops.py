@@ -35,12 +35,13 @@ def compute_conv2d_flops(mod, input_shape = None, output_shape = None, macs = Fa
     
     w_cout, w_cin, w_h, w_w =  mod.weight.data.shape
 
-    if mod.groups != 1:
-        input_channels = 1
-    else:
-        assert cin == w_cin
-        input_channels = w_cin
+    # if mod.groups != 1:
+    #     input_channels = 1
+    # else:
+    #     assert cin == w_cin
+    #     input_channels = w_cin
 
+    input_channels = w_cin
     output_channels = w_cout
     stride = mod.stride[0]
 
